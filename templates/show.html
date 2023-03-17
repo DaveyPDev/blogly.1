@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ user.full_name }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Show.html Page Test</h1>
+<form method="POST">
+    <p> Profile Photo: <img src="{{ user.image_url }}" alt=""> </p>
+    <p>First Name: {{ user.first_name }} </p>
+    <p>Last Name {{ user.last_name }} </p>
+    
+
+    <form>
+        <button class="btn btn-primary btn-sm"
+                formaction="/users/{{ user.id }}/edit"
+                formmethod="GET">Edit User
+        </button>
+        <button class="btn btn-danger btn-sm"
+                formaction="/users/{{ user.id }}/delete"
+                formmethod="POST">Delete User
+        </button>
+      </form>
+</form>
+
+
+{% endblock%}
